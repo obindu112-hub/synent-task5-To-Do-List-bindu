@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow | My Tasks</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app">
+
+        <aside class="sidebar">
+            <a href="#" class="brand">
+                <span class="brand-icon">✓</span> TaskFlow
+            </a>
+
+            <p class="side-label">WORKSPACE</p>
+
+            <button class="nav-item active" data-filter="all">▦ All Tasks</button>
+            <button class="nav-item" data-filter="pending">◷ Pending</button>
+            <button class="nav-item" data-filter="completed">✓ Completed</button>
+
+            <div class="sidebar-note">
+                <div class="note-icon">✦</div>
+                <h3>Small steps matter.</h3>
+                <p>Stay consistent. Your progress adds up every day.</p>
+            </div>
+
+            <p class="side-footer">TASKFLOW · PERSONAL PLANNER</p>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+                    <h1>My Tasks</h1>
+                    <p class="subtitle">Plan your day. Make progress.</p>
+                </div>
+                <div class="today" id="today"></div>
+            </header>
+
+            <section class="stats">
+                <article class="stat-card">
+                    <p>Total tasks</p>
+                    <h2 id="totalTasks">0</h2>
+                    <span>All your tasks</span>
+                </article>
+
+                <article class="stat-card">
+                    <p>Completed</p>
+                    <h2 id="completedTasks">0</h2>
+                    <span>Tasks finished</span>
+                </article>
+
+                <article class="stat-card">
+                    <p>Pending</p>
+                    <h2 id="pendingTasks">0</h2>
+                    <span>Still in progress</span>
+                </article>
+
+                <article class="stat-card">
+                    <p>Overall progress</p>
+                    <h2 id="progressPercent">0%</h2>
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span>Keep going!</span>
+                </article>
+            </section>
+
+            <section class="panel">
+                <div class="section-heading">
+                    <div>
+                        <h2>Add a new task</h2>
+                        <p>What would you like to accomplish?</p>
+                    </div>
+                </div>
+
+                <form id="taskForm">
+                    <div class="form-grid">
+                        <div class="field full">
+                            <label for="taskInput">Task name *</label>
+                            <input id="taskInput" type="text" placeholder="e.g. Practice Python DSA" maxlength="150"
+                                required>
+                        </div>
+
+                        <div class="field">
+                            <label for="categoryInput">Category</label>
+                            <select id="categoryInput">
+                                <option>Personal</option>
+                                <option>College</option>
+                                <option>Coding</option>
+                                <option>Placement</option>
+                                <option>Projects</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="priorityInput">Priority</label>
+                            <select id="priorityInput">
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="dueDateInput">Due date</label>
+                            <input id="dueDateInput" type="date">
+                        </div>
+
+                        <div class="field button-field">
+                            <label>&nbsp;</label>
+                            <button class="primary-btn" type="submit">
+                                + Add Task
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <section class="panel tasks-panel">
+                <div class="section-heading task-heading">
+                    <div>
+                        <h2>Your task list</h2>
+                        <p id="taskCountLabel">0 tasks</p>
+                    </div>
+
+                    <button id="clearCompleted" class="text-btn" type="button">
+                        Clear completed
+                    </button>
+                </div>
+
+                <div class="toolbar">
+                    <div class="search-box">
+                        <span>⌕</span>
+                        <input id="searchInput" type="search" placeholder="Search tasks...">
+                    </div>
+
+                    <select id="filterSelect" aria-label="Filter tasks">
+                        <option value="all">All tasks</option>
+                        <option value="pending">Pending</option>
+                        <option value="completed">Completed</option>
+                    </select>
+
+                    <select id="categoryFilter" aria-label="Filter category">
+                        <option value="all">All categories</option>
+                        <option>Personal</option>
+                        <option>College</option>
+                        <option>Coding</option>
+                        <option>Placement</option>
+                        <option>Projects</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div id="taskList" class="task-list"></div>
+
+                <div id="emptyMessage" class="empty-state">
+                    <div class="empty-icon">✓</div>
+                    <h3>No tasks found</h3>
+                    <p>Add a task or change your filters to get started.</p>
+                </div>
+            </section>
+
+            <footer>Made with care · TaskFlow Personal Planner</footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
